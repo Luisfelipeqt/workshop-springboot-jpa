@@ -2,6 +2,7 @@ package com.educandoweb.course.config;
 
 import com.educandoweb.course.entities.Order;
 import com.educandoweb.course.entities.User;
+import com.educandoweb.course.entities.enums.OrderStatus;
 import com.educandoweb.course.repositories.OrderRepository;
 import com.educandoweb.course.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +30,9 @@ public class TestConfig implements CommandLineRunner {
         User u2 = new User(null, "Alex Green", "alex@gmail.com", "88888888", "654321");
         User u3 = new User(null, "Luis Felipe Rodrigues", "luisfelipebr1995@gmail.com", "(16)997198565", "987654321");
 
-        Order o1 = new Order(null, Instant.parse("2023-01-17T12:35:50Z"), u1);
-        Order o2 = new Order(null, Instant.parse("2023-01-17T12:35:50Z"), u2);
-        Order o3 = new Order(null, Instant.parse("2023-01-17T12:35:50Z"), u3);
+        Order o1 = new Order(null, Instant.parse("2023-01-17T12:35:50Z"), OrderStatus.PAID, u1);
+        Order o2 = new Order(null, Instant.parse("2023-01-17T12:35:50Z"),OrderStatus.WAITING_PAYMENT, u2);
+        Order o3 = new Order(null, Instant.parse("2023-01-17T12:35:50Z"),OrderStatus.WAITING_PAYMENT, u3);
 
 
         System.out.println("Rodando com perfil Test");
